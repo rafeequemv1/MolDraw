@@ -1,16 +1,34 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="theme-color" content="#000000"/>
-  <meta name="description" content="MolDraw is a web-based chemical structure editor"/>
-  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico"/>
-  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png"/>
-  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png"/>
-  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png"/>
-  <link rel="manifest" href="./manifest.json"/>
-  <title>Ketcher v2.25.0</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+
+  <title>MolDraw, online chemical structure editor</title>
+  <meta name="description" content="Draw and edit molecules in your browser, import SMILES, export MOL and SVG, copy to clipboard, and share links." />
+  <link rel="canonical" href="https://moldraw.com/" />
+
+  <!-- Icons -->
+  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+  <link rel="manifest" href="./manifest.json" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://moldraw.com/" />
+  <meta property="og:title" content="MolDraw, online chemical structure editor" />
+  <meta property="og:description" content="Build and edit molecules, import SMILES, export MOL and SVG." />
+  <meta property="og:image" content="https://moldraw.com/og.png" />
+  <meta property="og:image:alt" content="MolDraw editor screenshot" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MolDraw, online chemical structure editor" />
+  <meta name="twitter:description" content="Build and edit molecules, import SMILES, export MOL and SVG." />
+  <meta name="twitter:image" content="https://moldraw.com/og.png" />
 
   <!-- Google Analytics (GA4) Integration -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0GXXMTT1RP"></script>
@@ -25,10 +43,25 @@
 
   <!-- CSS and JavaScript Files -->
   <script defer="defer" src="./static/js/main.612ac7f5.js"></script>
-  <link href="./static/css/main.e770f74b.css" rel="stylesheet">
+  <link href="./static/css/main.e770f74b.css" rel="stylesheet" />
 </head>
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+
+  <!-- Keep title and description from being overridden -->
+  <script>
+    const wantTitle = "MolDraw, online chemical structure editor";
+    const wantDesc  = "Draw and edit molecules in your browser, import SMILES, export MOL and SVG, copy to clipboard, and share links.";
+
+    function applyMeta(){
+      if (document.title !== wantTitle) document.title = wantTitle;
+      let d = document.querySelector('meta[name="description"]');
+      if (!d) { d = document.createElement("meta"); d.name = "description"; document.head.appendChild(d); }
+      if (d.content !== wantDesc) d.content = wantDesc;
+    }
+    applyMeta();
+    new MutationObserver(applyMeta).observe(document.head, { childList: true, subtree: true });
+  </script>
 </body>
 </html>
